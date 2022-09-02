@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
 class Event extends Component {
+  state = { show: false };
+
   eventDetailsToggler = () => {
     this.setState({ show: !this.state.show });
   };
-
-  state = { show: false };
 
   render() {
     const { event } = this.props;
