@@ -66,10 +66,32 @@ describe('<App /> integration', () => {
 
   test('get list of all events when user selects "See all cities"', async () => {
     const AppWrapper = mount(<App />);
+    const numberOfEvents = AppWrapper.state('numberOfEvents');
     const suggestionItems = AppWrapper.find(CitySearch).find('.suggestions li');
     await suggestionItems.at(suggestionItems.length - 1).simulate('click');
     const allEvents = await getEvents();
-    expect(AppWrapper.state('events')).toEqual(allEvents);
+    expect(AppWrapper.state('events')).toEqual(
+      allEvents.slice(0, numberOfEvents)
+    );
+    AppWrapper.unmount();
+  });
+
+  test('App passes "numberOfEvents" state as a prop to NumberOfEvents component', () => {
+    const AppWrapper = mount(<App />);
+    const AppNumberState = AppWrapper.state('numberOfEvents');
+    expect(AppNumberState).not.toEqual(undefined);
+    expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toEqual(
+      AppNumberState
+    );
+    AppWrapper.unmount();
+  });
+
+  test('change state according to typed input', () => {
+    const AppWrapper = mount(<App />);
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    const eventObject = { target: { value: 21 } };
+    NumberOfEventsWrapper.find('.number_input').simulate('change', eventObject);
+    expect(AppWrapper.state('numberOfEvents')).toBe(21);
     AppWrapper.unmount();
   });
 });

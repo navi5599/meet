@@ -12,6 +12,7 @@ class App extends Component {
     allEvents: [],
     locations: [],
     numberOfEvents: 10,
+    currentLocation: 'all',
     errorText: '',
   };
 
@@ -20,8 +21,8 @@ class App extends Component {
     getEvents().then((events) => {
       if (this.mounted) {
         this.setState({
-          events: events.slice(0, this.state.numberOfEvents),
           allEvents: events,
+          events: events.slice(0, this.state.numberOfEvents),
           locations: extractLocations(events),
         });
       }
@@ -51,8 +52,13 @@ class App extends Component {
     });
   };
 
-  handleInputChanged = (e) => {
-    let newCount = e.target.value;
+  handleInputChanged = (event) => {
+    let newCount = event.target.value;
+    if (isNaN(newCount)) {
+      return '';
+    } else {
+      parseInt(newCount);
+    }
     const allEvents = this.state.allEvents;
     const { currentLocation } = this.state;
     const locationEvents =
@@ -78,12 +84,13 @@ class App extends Component {
     const { locations, numberOfEvents, events } = this.state;
     return (
       <div className="App">
-        <CitySearch locations={locations} updateEvents={this.updateEvents} />
         <NumberOfEvents
           updateEvents={this.updateEvents}
           numberOfEvents={numberOfEvents}
           handleInputChanged={this.handleInputChanged}
         />
+        <CitySearch locations={locations} updateEvents={this.updateEvents} />
+
         <EventList events={events} />
       </div>
     );

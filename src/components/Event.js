@@ -11,7 +11,7 @@ class Event extends Component {
     const { event } = this.props;
     return (
       <div className="event-card">
-        <h5 className="event-title">{event.summary}</h5>
+        <h3 className="event-title">{event.summary}</h3>
         <p className="event-info">
           {event.location} {event.start.dateTime} {event.start.timeZone}
         </p>
@@ -20,14 +20,14 @@ class Event extends Component {
         )}
         {!this.state.show ? (
           <button
-            className="show_details-button"
+            className="show_details-button btn"
             onClick={this.eventDetailsToggler}
           >
             Show Details
           </button>
         ) : (
           <button
-            className="hide_details-button"
+            className="hide_details-button btn"
             onClick={this.eventDetailsToggler}
           >
             Hide Details

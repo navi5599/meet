@@ -27,6 +27,7 @@ class CitySearch extends Component {
   render() {
     return (
       <div className="CitySearch">
+        <p>Search for a City</p>
         <input
           type="text"
           className="city"
@@ -42,6 +43,7 @@ class CitySearch extends Component {
         >
           {this.state.suggestions.map((suggestion) => (
             <li
+              className="suggestion_element"
               key={suggestion}
               onClick={() => this.handleItemClicked(suggestion)}
             >

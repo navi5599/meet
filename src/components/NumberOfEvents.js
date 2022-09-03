@@ -4,7 +4,8 @@ class NumberOfEvents extends Component {
   render() {
     return (
       <div className="events_number_container">
-        <label className="label">Number of events:</label>
+        <h2 className="meet_logo">Meet App</h2>
+        <p className="label">Number of events</p>
         <input
           type="number"
           className="number_input"
