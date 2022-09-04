@@ -51,7 +51,7 @@ class CitySearch extends Component {
             </li>
           ))}
           <li key="all" onClick={() => this.handleItemClicked('all')}>
-            <b>See all cities</b>
+            <button className="all_cities_btn btn">See all cities</button>
           </li>
         </ul>
       </div>

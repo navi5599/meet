@@ -44,11 +44,16 @@
   padding: 1rem;
   width: 20%;
   height: 2rem;
-  border: none;
+  border: 3px solid transparent;
   outline: none;
   border-radius: 0.4rem;
   /* box-shadow: rgba(235, 235, 235, 0.19) 0px 10px 20px,
     rgba(255, 255, 255, 0.23) 0px 6px 6px; */
+}
+
+.city:hover,
+.number_input:hover {
+  border: 3px solid rgb(255, 154, 12);
 }
 
 .EventList {
@@ -61,8 +66,13 @@
   margin: auto;
 }
 
+/* .list-item {
+  height: 800px;
+} */
+
 .event-card {
   color: whitesmoke;
+  height: 15rem;
   padding-top: 1.5rem;
   padding-bottom: 0.5rem;
   margin: 0.5rem;
@@ -73,7 +83,7 @@
 
 .event-title {
   padding-bottom: 10px;
-  color: rgb(250, 215, 14);
+  color: rgb(197, 241, 0);
 }
 
 .event-card:hover {
@@ -87,7 +97,7 @@
   padding: 0.3rem;
   width: 50%;
   height: 30px;
-  margin-top: 1.5rem;
+  margin-top: 3rem;
   margin-bottom: 0.5rem;
   border: none;
   outline: none;
@@ -151,6 +161,12 @@
   left: 0;
   top: 0;
   border-radius: 10px;
+}
+
+.all_cities_btn {
+  font-size: small;
+  width: 6rem;
+  height: 1.7rem;
 }
 
 @keyframes glowing {
