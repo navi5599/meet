@@ -23,10 +23,10 @@ Serverless
 
 ### User stories:
 
- <img src="public/img_readme/nr1.png" alt="Alt text" style="display: inline-block; margin: 15px auto; max-width: 600px">
- <img src="public/img_readme/nr2.png" alt="Alt text" style="display: inline-block; margin: 15px auto; max-width: 600px">
- <img src="public/img_readme/nr3.png" alt="Alt text" style="display: inline-block; margin: 15px auto; max-width: 600px">
- <img src="public/img_readme/nr4.png" alt="Alt text" style="display: inline-block; margin: 15px auto; max-width: 600px">
+ <img src="public/img_readme/nr1.png" alt="Alt text" style="display: inline-block; margin: 15px auto; max-width: 400px">
+ <img src="public/img_readme/nr2.png" alt="Alt text" style="display: inline-block; margin: 15px auto; max-width: 400px">
+ <img src="public/img_readme/nr3.png" alt="Alt text" style="display: inline-block; margin: 15px auto; max-width: 400px">
+ <img src="public/img_readme/nr4.png" alt="Alt text" style="display: inline-block; margin: 15px auto; max-width: 400px">
 
 ---
 
