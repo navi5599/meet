@@ -72,7 +72,7 @@
 
 .event-card {
   color: whitesmoke;
-  height: 15rem;
+  min-height: 18rem;
   padding-top: 1.5rem;
   padding-bottom: 0.5rem;
   margin: 0.5rem;
