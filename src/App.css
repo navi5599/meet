@@ -93,6 +93,22 @@
   transition: ease-in-out 0.5s;
 }
 
+.suggestion_element {
+  padding-bottom: 5px;
+  width: 25%;
+  margin: auto;
+  list-style: none;
+}
+
+.suggestion_element:hover {
+  font-size: bold;
+  color: rgb(197, 241, 0);
+  text-decoration: underline;
+  scale: 1.15;
+  transition: ease-in-out 0.33s;
+  cursor: pointer;
+}
+
 .btn {
   padding: 0.3rem;
   width: 50%;
