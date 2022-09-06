@@ -4,7 +4,7 @@ import { mount, shallow } from 'enzyme';
 import App from '../App';
 import { mockData } from '../mock-data';
 import CitySearch from '../components/CitySearch';
-import { getEvents, extractLocations } from '../api';
+import { extractLocations } from '../api';
 
 const feature = loadFeature('./src/features/filterEventsByCity.feature');
 
