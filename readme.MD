@@ -21,6 +21,12 @@ Serverless
 
 ---
 
+##### Screenshot of the App:
+
+<img src="public/img_readme/meet.png" style="display: inline-block; margin: 0 auto; max-width: 600px" alt="Meet app photo">
+
+---
+
 ### User stories:
 
 #### Feature: Filter events by city
