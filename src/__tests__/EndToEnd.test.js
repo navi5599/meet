@@ -38,3 +38,39 @@ describe('show/hide an event details', () => {
     expect(eventDetails).toBeNull();
   });
 });
+
+//Bonus Task
+
+describe('Filter events by city', () => {
+  let browser;
+  let page;
+
+  beforeAll(async () => {
+    browser = await puppeteer.launch({
+      headless: false,
+      slowMo: 250,
+      ignoreDefaultArgs: ['--disable-extensions'],
+    });
+    page = await browser.newPage();
+    await page.goto('http://localhost:3000/');
+    await page.waitForSelector('.city');
+  });
+
+  afterAll(() => {
+    browser.close();
+  });
+
+  test('When user hasn’t searched for a city, show upcoming events from all cities.', async () => {});
+
+  test('User should see a list of suggestions when they search for a city.', async () => {
+    await page.type('.city', 'London', { delay: 150 });
+    const suggestion = await page.$('.suggestions');
+    expect(suggestion).toBeDefined();
+  });
+
+  test('User can select a city from the suggested list.', async () => {
+    await page.reload();
+    await page.type('.city', 'London', { delay: 150 });
+    await page.click('.suggestions li');
+  });
+});

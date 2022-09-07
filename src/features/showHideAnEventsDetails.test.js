@@ -1,23 +1,27 @@
 import { loadFeature, defineFeature } from 'jest-cucumber';
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import App from '../App';
-import { mockData } from '../mock-data';
-import CitySearch from '../components/CitySearch';
-import Event from '../components/Event';
-import { extractLocations } from '../api';
 
 const feature = loadFeature('./src/features/showHideAnEventsDetails.feature');
 
 defineFeature(feature, (test) => {
   test('An event element is collapsed by default.', ({ given, when, then }) => {
-    given('User has opened app', () => {});
+    let AppWrapper;
+    given('User has opened app', () => {
+      AppWrapper = mount(<App />);
+    });
 
     when('the user views the featured city', () => {});
 
     then(
       'the current events from that city will be collapsed/hidden from the user',
-      () => {}
+      () => {
+        AppWrapper.update();
+        expect(AppWrapper.find('.event-card .event-description')).toHaveLength(
+          0
+        );
+      }
     );
   });
 
@@ -26,16 +30,24 @@ defineFeature(feature, (test) => {
     when,
     then,
   }) => {
+    let AppWrapper;
     given(
       'User searched for City,and now has option to see details for an specific event',
-      () => {}
+      () => {
+        AppWrapper = mount(<App />);
+      }
     );
 
-    when('User clicks on expand button', () => {});
+    when('User clicks on expand button', () => {
+      AppWrapper.update();
+      AppWrapper.find('.show_details-button').at(0).simulate('click');
+    });
 
     then(
       'User will be able to see all the details for that specific event',
-      () => {}
+      () => {
+        expect(AppWrapper.find('.event-description')).toHaveLength(1);
+      }
     );
   });
 
@@ -44,10 +56,21 @@ defineFeature(feature, (test) => {
     when,
     then,
   }) => {
-    given('User expanded event view', () => {});
+    let AppWrapper;
+    given('User expanded event view', async () => {
+      AppWrapper = await mount(<App />);
+      AppWrapper.update();
+      AppWrapper.find('.show_details-button').at(0).simulate('click');
+      expect(AppWrapper.find('.event-description')).toHaveLength(1);
+    });
 
-    when('User clicks to close the event', () => {});
+    when('User clicks to close the event', () => {
+      AppWrapper.update();
+      AppWrapper.find('.hide_details-button').at(0).simulate('click');
+    });
 
-    then('Details will be hidden', () => {});
+    then('Details will be hidden', () => {
+      expect(AppWrapper.find('.event-description')).toHaveLength(0);
+    });
   });
 });

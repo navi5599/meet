@@ -9,6 +9,7 @@ class Event extends Component {
 
   render() {
     const { event } = this.props;
+
     return (
       <div className="event-card">
         <h3 className="event-title">{event.summary}</h3>
@@ -16,7 +17,10 @@ class Event extends Component {
           {event.location} {event.start.dateTime} {event.start.timeZone}
         </p>
         {this.state.show && (
-          <p className="event-description">{event.description}</p>
+          <div className="event-description">
+            <p className="description-title">Event Description:</p>
+            <p>{event.description}</p>
+          </div>
         )}
         {!this.state.show ? (
           <button
