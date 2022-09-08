@@ -11,7 +11,7 @@ class App extends Component {
     events: [],
     allEvents: [],
     locations: [],
-    numberOfEvents: 32,
+    numberOfEvents: 12,
     currentLocation: 'all',
     errorText: '',
   };
@@ -88,6 +88,7 @@ class App extends Component {
           updateEvents={this.updateEvents}
           numberOfEvents={numberOfEvents}
           handleInputChanged={this.handleInputChanged}
+          errorText={this.state.errorText}
         />
         <CitySearch locations={locations} updateEvents={this.updateEvents} />
 
