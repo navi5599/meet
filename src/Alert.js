@@ -11,7 +11,8 @@ class Alert extends Component {
       color: this.color,
       fontStyle: 'Italic',
       fontSize: '16px',
-      padding: '10px',
+      margin: '10px',
+      height: '10px',
     };
   };
 
