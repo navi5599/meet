@@ -17,7 +17,7 @@ class CitySearch extends Component {
     if (suggestions.length === 0) {
       this.setState({
         query: value,
-        infoText: `There is no such city as \'${value}\'. Please try another city`,
+        infoText: `There is no such city as '${value}'. Please try another city`,
       });
     } else {
       return this.setState({

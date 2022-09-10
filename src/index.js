@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+// import * as serviceWorker from './service-worker';
 import reportWebVitals from './reportWebVitals';
 import * as atatus from 'atatus-spa';
 
@@ -15,6 +16,7 @@ root.render(
   </React.StrictMode>
 );
 
-serviceWorkerRegistration.unregister();
+serviceWorkerRegistration.register();
+// serviceWorker.register();
 
 reportWebVitals();
