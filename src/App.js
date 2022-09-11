@@ -3,6 +3,7 @@ import { getEvents, extractLocations } from './api';
 import EventList from './components/EventList';
 import CitySearch from './components/CitySearch';
 import NumberOfEvents from './components/NumberOfEvents';
+import { WarningAlert } from './Alert';
 import './nprogress.css';
 import './App.css';
 
@@ -14,6 +15,7 @@ class App extends Component {
     numberOfEvents: 12,
     currentLocation: 'all',
     errorText: '',
+    offlineText: '',
   };
 
   componentDidMount() {
@@ -27,6 +29,16 @@ class App extends Component {
         });
       }
     });
+
+    if (!navigator.onLine) {
+      this.setState({
+        offlineText: "Your're viewing app offline! Data my not be up to date.",
+      });
+    } else {
+      this.setState({
+        offlineText: '',
+      });
+    }
   }
 
   componentWillUnmount() {
@@ -84,6 +96,7 @@ class App extends Component {
     const { locations, numberOfEvents, events } = this.state;
     return (
       <div className="App">
+        <WarningAlert text={this.state.offlineText} />
         <NumberOfEvents
           updateEvents={this.updateEvents}
           numberOfEvents={numberOfEvents}
