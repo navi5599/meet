@@ -115,7 +115,6 @@ class App extends Component {
           errorText={this.state.errorText}
         />
         <CitySearch locations={locations} updateEvents={this.updateEvents} />
-
         <EventList events={events} />
         <WelcomeScreen
           showWelcomeScreen={this.state.showWelcomeScreen}
