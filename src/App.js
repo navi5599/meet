@@ -14,8 +14,8 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  Legend,
 } from 'recharts';
-
 import './nprogress.css';
 import './App.css';
 
@@ -113,7 +113,7 @@ class App extends Component {
   };
 
   getData = () => {
-    const { locations, events } = this.state;
+    const { locations, events } = this.props;
     const data = locations.map((location) => {
       const number = events.filter(
         (event) => event.location === location
@@ -142,7 +142,7 @@ class App extends Component {
         <div className="data-vis-wrapper">
           <EventGenre events={events} />
           <ResponsiveContainer height={400}>
-            <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+            <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 10 }}>
               <CartesianGrid />
               <XAxis type="category" dataKey="city" name="city" />
               <YAxis
@@ -151,6 +151,7 @@ class App extends Component {
                 dataKey="number"
                 name="number of events"
               />
+              <Legend verticalAlign="top" height={36} />
               <Tooltip cursor={{ strokeDasharray: '3 3' }} />
               <Scatter data={this.getData()} fill="#ff7300" />
             </ScatterChart>
