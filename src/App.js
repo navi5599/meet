@@ -151,7 +151,7 @@ class App extends Component {
                 dataKey="number"
                 name="number of events"
               />
-              <Legend verticalAlign="top" height={36} />
+
               <Tooltip cursor={{ strokeDasharray: '3 3' }} />
               <Scatter data={this.getData()} fill="#ff7300" />
             </ScatterChart>
