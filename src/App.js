@@ -113,7 +113,7 @@ class App extends Component {
   };
 
   getData = () => {
-    const { locations, events } = this.props;
+    const { locations, events } = this.state;
     const data = locations.map((location) => {
       const number = events.filter(
         (event) => event.location === location
@@ -151,7 +151,7 @@ class App extends Component {
                 dataKey="number"
                 name="number of events"
               />
-
+              <Legend verticalAlign="bottom" height={36} />
               <Tooltip cursor={{ strokeDasharray: '3 3' }} />
               <Scatter data={this.getData()} fill="#ff7300" />
             </ScatterChart>
