@@ -4,9 +4,38 @@
 
 This is a serverless React App built using TDD (Test driven development).App uses Google APi to fetch events data.
 
+### Features
+
+- See events fetched from Google API
+- Display number of events you want to see
+- Search for a specific City
+- See all the data displayed in charts
+
 ### Instructions
 
-This part needs to be updated later on -
+Before doing anything, of course, make sure Node and npm are available. To install node, visit : https://nodejs.org/en/download/
+
+Then follow steps below
+
+Run command to clone repository:
+
+```
+$ git clone https://github.com/navi5599/meet.git
+```
+
+After cloning repo, you should install all dependencies
+
+```
+$ npm install
+```
+
+In your root project folder, just run
+
+```
+$ npm start
+```
+
+After that, app should be automatically opened in `localhost:3000/meet`
 
 ### Tech used:
 
